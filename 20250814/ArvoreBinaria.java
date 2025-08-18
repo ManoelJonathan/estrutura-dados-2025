@@ -1,32 +1,57 @@
+
 public class ArvoreBinaria implements Arvore {
 
     private NodoArvore raiz;
 
     public ArvoreBinaria() {
         this.raiz = null;
-    }  
+    }
 
     // --- MÉTODO DE INSERÇÃO ---
     // Escreva seus métodos de inserção considerando
     // o método de pesquisa e pesquisaRecursiva como modelo
     // Você deve criar um método inserirRecursivo e
     // chamá-lo a partir do método inserir
-    
+
     @Override
     public void inserir(int valor) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'inserir'");
+        this.raiz = inserirRecursivo(this.raiz, valor);
     }
-    
 
+    private NodoArvore inserirRecursivo(NodoArvore nodoAtual, int valor) {
+        if (nodoAtual == null) {
+            NodoArvore novoNodo = new NodoArvore(valor);
+            this.raiz = novoNodo;
+            return novoNodo;
+
+        } else if (nodoAtual.chave > valor) {
+            if (nodoAtual.filhoEsquerda == null) {
+                NodoArvore novoNodo = new NodoArvore(valor);
+                nodoAtual.filhoEsquerda = novoNodo;
+
+            } else {
+                inserirRecursivo(nodoAtual.filhoEsquerda, valor);
+            }
+        } else if (nodoAtual.chave < valor) {
+            if (nodoAtual.filhoDireita == null) {
+                NodoArvore novoNodo = new NodoArvore(valor);
+                nodoAtual.filhoDireita = novoNodo;
+
+            } else {
+                inserirRecursivo(nodoAtual.filhoDireita, valor);
+            }
+        }
+        return nodoAtual;
+    }
 
     // --- MÉTODO DE PESQUISA ---
-    // Esse método é um modelo do tipo de recursão que pode 
-    // ser utilizado para implementar a pesquisa 
-    // em outras estruturas de dados e na inserção de 
+    // Esse método é um modelo do tipo de recursão que pode
+    // ser utilizado para implementar a pesquisa
+    // em outras estruturas de dados e na inserção de
     // valores na árvore
     /**
      * Método público para pesquisar um valor na árvore.
+     * 
      * @param valor O valor a ser procurado.
      * @return O nó que contém o valor, ou null se não for encontrado.
      */
@@ -41,7 +66,7 @@ public class ArvoreBinaria implements Arvore {
      * na subárvore esquerda ou direita. [cite: 1, 7]
      *
      * @param noAtual O nó raiz da subárvore de busca.
-     * @param valor O valor a ser procurado.
+     * @param valor   O valor a ser procurado.
      * @return O nó encontrado ou null.
      */
     private NodoArvore pesquisaRecursivo(NodoArvore noAtual, int valor) {
@@ -56,7 +81,6 @@ public class ArvoreBinaria implements Arvore {
         }
     }
 
-
     @Override
     public void remover(int valor) {
         // TODO Auto-generated method stub
@@ -68,7 +92,5 @@ public class ArvoreBinaria implements Arvore {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'imprime_preFixado'");
     }
-
-
 
 }
