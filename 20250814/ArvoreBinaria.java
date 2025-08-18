@@ -1,4 +1,3 @@
-
 public class ArvoreBinaria implements Arvore {
 
     private NodoArvore raiz;
@@ -88,9 +87,16 @@ public class ArvoreBinaria implements Arvore {
     }
 
     @Override
-    public void imprime_preFixado() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'imprime_preFixado'");
+    public void imprime_preFixado(NodoArvore nodoAtual) {
+        if (nodoAtual == null) {
+            return;
+        }
+        if (nodoAtual != null) {
+            System.out.print(nodoAtual.chave + "");
+            imprime_preFixado(nodoAtual.filhoEsquerda);
+            imprime_preFixado(nodoAtual.filhoDireita);
+            return;
+        }
     }
 
 }
