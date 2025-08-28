@@ -104,7 +104,7 @@ public class ArvoreBinaria implements Arvore {
      * @param no O nó raiz da subárvore a ser impressa.
      */
     private void imprimePreFixadoRecursivo(NodoArvore nodoAtual) {
-        if (nodoAtual === null){
+        if (nodoAtual == null){
             return;
         }
         if (nodoAtual != null) {
@@ -119,7 +119,7 @@ public class ArvoreBinaria implements Arvore {
    }
 
     private void imprimePosFixadoRecursivo(NodoArvore nodoAtual) {
-        if (nodoAtual === null){
+        if (nodoAtual == null){
             return;
         }
         if (nodoAtual != null) {
@@ -134,7 +134,7 @@ public class ArvoreBinaria implements Arvore {
     }
 
     private void imprimeOrdemRecursivo(NodoArvore nodoAtual){
-        if (nodoAtual === null){
+        if (nodoAtual == null){
             return;
         }
 
